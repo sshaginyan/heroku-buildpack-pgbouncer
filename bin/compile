@@ -43,7 +43,7 @@ function indent() {
 
 echo "Using pgbouncer version: ${PGBOUNCER_VERSION}" | indent
 if [ "$STUNNEL_VERSION" != "" ]; then
-echo "Using stunnel version: ${STUNNEL_VERSION}" | indent
+  echo "Using stunnel version: ${STUNNEL_VERSION}" | indent
 fi
 
 # vendor directories
@@ -58,10 +58,10 @@ tar xzf pgbouncer-${PGBOUNCER_VERSION}.tgz -C ${BUILD_DIR}/${VENDORED_PGBOUNCER}
 
 # vendor stunnel into the slug
 if [ "$STUNNEL_VERSION" != "" ]; then
-PATH="$BUILD_DIR/$VENDORED_STUNNEL/bin:$PATH"
-echo "-----> Fetching and vendoring stunnel into slug"
-mkdir -p "$BUILD_DIR/$VENDORED_STUNNEL"
-tar xzf stunnel-${STUNNEL_VERSION}.tgz -C ${BUILD_DIR}/${VENDORED_STUNNEL}
+  PATH="$BUILD_DIR/$VENDORED_STUNNEL/bin:$PATH"
+  echo "-----> Fetching and vendoring stunnel into slug"
+  mkdir -p "$BUILD_DIR/$VENDORED_STUNNEL"
+  tar xzf stunnel-${STUNNEL_VERSION}.tgz -C ${BUILD_DIR}/${VENDORED_STUNNEL}
 fi
 
 echo "-----> Moving the configuration generation script into app/bin"
