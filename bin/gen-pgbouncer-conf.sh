@@ -22,11 +22,9 @@ mkdir -p /app/vendor/stunnel/var/run/stunnel/
 cat > /app/vendor/stunnel/stunnel-pgbouncer.conf << EOFEOF
 foreground = yes
 
-options = NO_SSLv2
 options = SINGLE_ECDH_USE
 options = SINGLE_DH_USE
 socket = r:TCP_NODELAY=1
-options = NO_SSLv3
 ${AMAZON_RDS_STUNNEL_OPTION}
 ciphers = HIGH:!ADH:!AECDH:!LOW:!EXP:!MD5:!3DES:!SRP:!PSK:@STRENGTH
 debug = ${PGBOUNCER_STUNNEL_LOGLEVEL:-notice}
