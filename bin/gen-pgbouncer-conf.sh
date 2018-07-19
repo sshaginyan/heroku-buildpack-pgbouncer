@@ -14,7 +14,7 @@ fi
 cat >> /app/vendor/pgbouncer/pgbouncer.ini << EOFEOF
 [pgbouncer]
 listen_addr = *
-listen_port = 5432
+listen_port = {PORT}
 auth_type = md5
 auth_file = /app/vendor/pgbouncer/users.txt
 server_tls_sslmode = prefer
@@ -56,9 +56,9 @@ do
 
   if [ "$PGBOUNCER_PREPARED_STATEMENTS" == "false" ]
   then
-    export ${POSTGRES_URL}_PGBOUNCER=postgres://$DB_USER:$DB_PASS@0.0.0.0:5432/$CLIENT_DB_NAME?prepared_statements=false
+    export ${POSTGRES_URL}_PGBOUNCER=postgres://$DB_USER:$DB_PASS@0.0.0.0:{PORT}/$CLIENT_DB_NAME?prepared_statements=false
   else
-    export ${POSTGRES_URL}_PGBOUNCER=postgres://$DB_USER:$DB_PASS@0.0.0.0:5432/$CLIENT_DB_NAME
+    export ${POSTGRES_URL}_PGBOUNCER=postgres://$DB_USER:$DB_PASS@0.0.0.0:{PORT}/$CLIENT_DB_NAME
   fi
 
   cat >> /app/vendor/pgbouncer/users.txt << EOFEOF
