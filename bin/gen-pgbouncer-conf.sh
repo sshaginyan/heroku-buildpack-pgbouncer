@@ -14,7 +14,7 @@ fi
 cat >> /app/vendor/pgbouncer/pgbouncer.ini << EOFEOF
 [pgbouncer]
 listen_addr = *
-listen_port = 5432
+listen_port = 6001
 auth_type = md5
 auth_file = /app/vendor/pgbouncer/users.txt
 server_tls_sslmode = prefer
