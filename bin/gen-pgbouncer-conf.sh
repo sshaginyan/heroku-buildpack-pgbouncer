@@ -40,6 +40,8 @@ log_pooler_errors = ${PGBOUNCER_LOG_POOLER_ERRORS:-1}
 stats_period = ${PGBOUNCER_STATS_PERIOD:-60}
 ignore_startup_parameters = ${PGBOUNCER_IGNORE_STARTUP_PARAMETERS}
 
+ignore_startup_parameters = extra_float_digits
+
 [databases]
 EOFEOF
 
